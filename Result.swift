@@ -26,6 +26,7 @@ struct Result: Codable {
     var popularity : Float = 0.0
     var video : Bool = false
     var poster : String = ""
+    var id : Int = 0
     
                    //형식
     enum CodingKeys: String, CodingKey {
@@ -35,6 +36,7 @@ struct Result: Codable {
         case popularity
         case video
         case poster = "poster_path"
+        case id
         //하위 요소일경우 case country(하위) = "location"(상위)식으로 작성
     }
     
@@ -54,6 +56,7 @@ struct Result: Codable {
         popularity = try values.decode(Float.self, forKey: .popularity)
         video = try values.decode(Bool.self, forKey: .video)
         poster = try values.decode(String.self, forKey: .poster)
+        id = try values.decode(Int.self, forKey: .id)
     }
 }
 

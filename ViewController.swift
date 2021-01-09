@@ -146,6 +146,14 @@ class ViewController: UIViewController {
 //        return results
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destination = segue.destination as! DetailViewController
+        let indexpath = self.tableView.indexPathForSelectedRow
+        let indexId = results[indexpath!.row].id
+        
+        destination.id = indexId
+        
+    }
 }
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
